@@ -92,13 +92,18 @@ alias b='bat'
 alias ba='bat -A'
 alias bd='bat -d'
 alias md='mkdir'
-alias ra='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias dir='dirs -v'
 alias nvi='nvim'
 alias vi='vim'
 
 what() {
     bat $(whence $1)
+}
+
+ra() {
+    ranger --choosedir=$HOME/.rangerdir $*
+    LASTDIR=`cat $HOME/.rangerdir`
+    cd "$LASTDIR"
 }
 
 # Remembering recent directories
